@@ -1,6 +1,8 @@
 # slows
 
-delaying the flow of data at regular interval.
+delaying the flow of data at regular interval. in stream.
+
+see [example](https://github.com/ishiduca/slows)
 
 ## usage
 
