@@ -1,0 +1,25 @@
+{
+  "name": "slows",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape t/*.js",
+    "testling": "browserify t/*.js | testling"
+  },
+  "keywords": [
+    "stream",
+    "delay",
+    "semaphore",
+    "slow"
+  ],
+  "author": "ishiduca@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "through": "^2.3.7"
+  },
+  "devDependencies": {
+    "cheerio-httpcli": "^0.3.2",
+    "event-stream": "^3.3.1",
+    "tape": "^4.0.0"
+  }
+}
