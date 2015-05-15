@@ -4,7 +4,7 @@ delaying the flow of data at regular interval.
 
 ## usage
 
-js```
+```js
 var es    = require('event-stream')
 var delay = require('slows')
 
