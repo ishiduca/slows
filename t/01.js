@@ -40,26 +40,26 @@ test('delay(100)', function (t) {
 })
 
 test('delay(3, 100)', function (t) {
-	var spy = []
-	var d   = delay(3, 100)
+    var spy = []
+    var d   = delay(3, 100)
 
-	setTimeout(function () {
-		t.deepEqual(['a', 'b', 'c'], spy, '50msec after spy == ["a", "b", "c"]')
-	}, 50)
+    setTimeout(function () {
+        t.deepEqual(['a', 'b', 'c'], spy, '50msec after spy == ["a", "b", "c"]')
+    }, 50)
 
-	setTimeout(function () {
-		t.deepEqual(['a', 'b', 'c', 'd', 'e', 'g'], spy,
-		  '150msec after spy == ["a", "b", "c", "d", "e", "g"]')
-	}, 150)
+    setTimeout(function () {
+        t.deepEqual(['a', 'b', 'c', 'd', 'e', 'g'], spy,
+          '150msec after spy == ["a", "b", "c", "d", "e", "g"]')
+    }, 150)
 
-	es.readArray(('abcdegfx').split(''))
-	  .pipe(delay(3, 100))
-	  .on('data', function (data) {
-		spy.push(data)
-	  })
-	  .on('end', function () {
-		t.deepEqual(['a', 'b', 'c', 'd', 'e', 'g', 'f', 'x'], spy
-		  , '["a", "b", "c", "d", "e", "g", "f", "x"]')
-		t.end()
-	  })
+    es.readArray(('abcdegfx').split(''))
+      .pipe(delay(3, 100))
+      .on('data', function (data) {
+        spy.push(data)
+      })
+      .on('end', function () {
+        t.deepEqual(['a', 'b', 'c', 'd', 'e', 'g', 'f', 'x'], spy
+          , '["a", "b", "c", "d", "e", "g", "f", "x"]')
+        t.end()
+      })
 })

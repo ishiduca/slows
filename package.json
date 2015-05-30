@@ -1,6 +1,6 @@
 {
   "name": "slows",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "main": "index.js",
   "scripts": {
     "test": "tape t/*.js",
@@ -19,7 +19,7 @@
     "url": "git://github.com/ishiduca/slows.git"
   },
   "dependencies": {
-    "through": "^2.3.7"
+    "through2": "^0.6.5"
   },
   "devDependencies": {
     "cheerio-httpcli": "^0.3.2",

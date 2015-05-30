@@ -1,19 +1,22 @@
-var through   = require('through')
+var through   = require('through2')
 var semaphore = require('./lib/semaphore')
-
 module.exports = function delay (/* [capacity,] msec */) {
     var args    = [].slice.apply(arguments)
     var timeout = args.pop()
     var sem     = semaphore(args.shift())
 
-    var s = through(function onData (data) {
+    var s = through.obj(function _write (data, enc, done) {
+        var me = this
         sem.wait(function () {
             setTimeout(sem.signal, timeout)
-            s.queue(data)
+            me.push(data)
+            done()
         })
-    }, function onEnd () {
+    }, function _end (done) {
+        var me = this
         sem.wait(function () {
-            s.queue(null)
+            me.push(null)
+            done()
             sem.signal()
         })
     })
