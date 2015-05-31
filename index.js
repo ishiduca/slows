@@ -6,7 +6,7 @@ module.exports = function delay (/* [capacity,] msec */) {
     var timeout = args.pop()
     var sem     = semaphore(args.shift())
 
-    var s = through.obj(function _write (data, enc, done) {
+    return through.obj(function _write (data, enc, done) {
         var me = this
         sem.wait(function () {
             setTimeout(sem.signal, timeout)
@@ -21,6 +21,4 @@ module.exports = function delay (/* [capacity,] msec */) {
             sem.signal()
         })
     })
-
-    return s
 }
