@@ -1,5 +1,6 @@
 var through   = require('through2')
 var semaphore = require('./lib/semaphore')
+
 module.exports = function delay (/* [capacity,] msec */) {
     var args    = [].slice.apply(arguments)
     var timeout = args.pop()
